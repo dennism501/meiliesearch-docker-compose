@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  meilisearch:
+    image: "getmeili/meilisearch:v0.29"
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:7700:7700"
+    volumes:
+      - ./data.ms:/data.ms
+    env_file:
+      - ./meilisearch.env
+networks: 
+  meilisearch: 
+    driver: bridge
